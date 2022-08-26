@@ -1,0 +1,41 @@
+@model myapp.Models.Contacto
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=}, initial-scale=1.0">
+    <title>Contacto</title>
+</head>
+
+<body>
+    <div class="text-center">
+        <h1>Ingresa un Nuevo Contacto!!!</h1><br>
+    </div>
+    <form asp-controller="Contacto" asp-action="Create">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <label asp-for="Name" class="control-label"></label>
+        <input asp-for="Name" class="form-control"><br>
+        <div class="control-group">
+            <label asp-for="Email" class="control-label"></label>
+            <input asp-for="Email" class="form-control">
+            <span asp-validation-for="Email" class="text-danger"></span>
+        </div><br>
+        <div class="control-group">
+            <label asp-for="Phone" class="control-label"></label>
+            <input asp-for="Phone" class="form-control">
+            <span asp-validation-for="Phone" class="text-danger"></span>
+        </div><br>
+        <label asp-for="Message"></label>
+        <textarea asp-for="Message" class="form-control"></textarea><br>
+        <button type="submit" class="btn btn-primary">Crear</button>
+    </form><br>
+    <h1>@ViewData["Message"]</h1>
+</body>
+
+@section Scripts {
+@{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
+
+</html>

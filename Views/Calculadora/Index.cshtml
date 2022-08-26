@@ -1,0 +1,28 @@
+@model myapp.Models.Calculadora
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora</title>
+</head>
+<body>
+    <h1>Prueba Nuestra Calculadora!!!</h1><br>
+    <form asp-controller="Calculadora" asp-action="Calcular">
+        <label >Primer Valor:</label>
+        <input asp-for="Operador1" class="form-control"><br>
+        <label >Segundo Valor:</label>
+        <input asp-for="Operador2" class="form-control"><br>
+        <label >Tipo de Operación:</label>
+        <select asp-for="Operando" class="form-control">
+            <option value="+">Suma</option>
+            <option value="-">Resta</option>
+            <option value="*">Multiplica</option>
+            <option value="/">Divide</option>
+        </select><br>
+        <button type="submit" class="btn btn-primary">Calcular</button>
+    </form><br>
+    <h1>@ViewData["Message"]</h1>
+</body>
+</html>
